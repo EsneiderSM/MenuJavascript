@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+
+	<link rel="stylesheet" href="css.css">
+
+	<style>
+		
+		nav ul,
+		nav ul li ul{
+			list-style: none;
+			margin: 0;
+			padding: 0;
+		}
+
+		nav ul li ul{
+			display: none;
+		}
+
+		.dropdown .show{
+			display: block;
+		}
+
+		.dropdown .hide{
+			display: none;
+		}
+
+	</style>
+
+</head>
+<body>
+
+
+	<nav id="menu" class="menu-close">
+		
+		<ul>
+        	<li class="dropdown">
+          		<a href="#" data-toggle="dropdown">
+            		Lorem<span class="arrow" id="arrow-one"></span>
+          		</a>
+          		<ul class="dropdown-menu">
+            		<li><a href="">1</a></li>
+            		<li><a href="">2</a></li>
+            		<li><a href="">3</a></li>
+          		</ul>
+        	</li>
+
+        	<li class="dropdown">
+          		<a href="#" data-toggle="dropdown">
+            		Lorem<span class="arrow" id="arrow-one"></span>
+          		</a>
+          		<ul class="dropdown-menu">
+            		<li><a href="">1</a></li>
+            		<li><a href="">2</a></li>
+            		<li><a href="">3</a></li>
+          		</ul>
+        	</li>
+
+        	<li class="dropdown">
+          		<a href="#" data-toggle="dropdown">
+            		Lorem<span class="arrow" id="arrow-one"></span>
+          		</a>
+          		<ul class="dropdown-menu">
+            		<li><a href="">1</a></li>
+            		<li><a href="">2</a></li>
+            		<li><a href="">3</a></li>
+          		</ul>
+        	</li>
+		
+      	</ul>
+
+    </nav>
+
+    <script>
+    	// Dropdown Menu
+		var dropdown = document.querySelectorAll('.dropdown');
+		var dropdownArray = Array.prototype.slice.call(dropdown,0);
+		dropdownArray.forEach(function(el){
+			var button = el.querySelector('a[data-toggle="dropdown"]'),
+					menu = el.querySelector('.dropdown-menu');
+
+			button.onclick = function(event) {
+				if(!menu.hasClass('show')) {
+					menu.classList.add('show');
+					menu.classList.remove('hide');
+					event.preventDefault();
+				}
+				else {
+					menu.classList.remove('show');
+					menu.classList.add('hide');
+					event.preventDefault();
+				}
+			};
+		})
+
+		Element.prototype.hasClass = function(className) {
+		    return this.className && new RegExp("(^|\\s)" + className + "(\\s|$)").test(this.className);
+		};
+    </script>
+	
+</body>
+</html>
